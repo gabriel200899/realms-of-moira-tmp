@@ -27,12 +27,6 @@ public class Data {
 	public static String[] availableRacesArray = { "human", "orc", "dwarf",
 			"elf" };
 
-	public static void info() {
-		out.println("Author:\tBernardo Sulzbach\n"
-				+ "GitHub:\tbesulzbach/realmsofmoira/\n"
-				+ "E-mail:\tbesulzbach@gmail.com");
-	}
-
 	public static void start() {
 		out.println("Main menu");
 		out.println("[1] Duel");

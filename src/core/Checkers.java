@@ -252,11 +252,26 @@ public class Checkers {
 				return true;
 			} else {
 				return false;
-			}			
+			}
 		} catch (IndexOutOfBoundsException e) {
 			notAvailable();
 			return true;
 		}
+	}
+	
+	// TODO: finish this.
+	static boolean helpCheck(String givenString) {
+	    try {
+            if ((givenString.equals("help")) || (givenString.equals("info"))) {
+                System.out.println(inUse.get(1).toString());
+                return true;
+            } else {
+                return false;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            notAvailable();
+            return true;
+        }
 	}
 		
 	// Checks if the user requested to quit the game
