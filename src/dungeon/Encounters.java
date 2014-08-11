@@ -6,6 +6,11 @@ import creatures.foes.Wolf;
 
 final class Encounters {
 
+	// A string with 78 '=', used as a separator.
+    private static final String BLANK_LINE = "===============================================================================";
+    private static final String ENCOUNTER_1_DIALOG = "You are in a dark cave.\nYou hear something flying in your direction.\nThe dim light that enters the cave reveals a bat.\nKill it to earn experience points and gold.";
+    private static final String ENCOUNTER_2_DIALOG = "As you walk into the darkness you hear a wolf.\nIt starts to run in your direction.\nKill it to earn experience points and gold.";
+
 	static void line() {
 		for (int i = 0; i < 79; i++) {
 			System.out.print("=");
@@ -27,18 +32,26 @@ final class Encounters {
 	}
 
 	static void encounter1() {
-		line();
-		System.out.println("You arrived a dark cave.");
-		System.out.println("You hear something flying in your direction.");
-		System.out.println("The dim light that enters the cave reveals a bat.");
-		System.out.println("Kill it to earn experience points and gold.");
-		line();
+        System.out.println(BLANK_LINE);
+        System.out.println(ENCOUNTER_1_DIALOG);
+        System.out.println(BLANK_LINE);
 		Data.inUse.add(new Bat(1));
 		DungeonEngine.startBattle();
 		if (Data.inUse.get(0).isAlive()) {
 			System.out.println("You defeated the bat.");
 		}
 	}
+
+    static void encounter2() {
+        System.out.println(BLANK_LINE);
+        System.out.println(ENCOUNTER_2_DIALOG);
+        System.out.println(BLANK_LINE);
+        Data.inUse.add(new Wolf(1));
+		DungeonEngine.startBattle();
+		if (Data.inUse.get(0).isAlive()) {
+			System.out.println("You defeated the wolf.");
+		}
+    }
 
 	static void encounter1b() {
 		line();
@@ -52,17 +65,4 @@ final class Encounters {
 		}
 	}
 
-	static void encounter2() {
-		line();
-		System.out
-				.println("As you walk deeper into the darkness you hear a wolf.");
-		System.out.println("It starts running in your direction.");
-		System.out.println("Kill it to earn experience points and gold.");
-		line();
-		Data.inUse.add(new Wolf(1));
-		DungeonEngine.startBattle();
-		if (Data.inUse.get(0).isAlive()) {
-			System.out.println("You defeated the wolf.");
-		}
-	}
 }
